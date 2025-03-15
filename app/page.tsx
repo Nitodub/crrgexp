@@ -1,101 +1,84 @@
-import Image from "next/image";
+'use client'
+import MidSection from '@/components/MidSection'
+import Alan from '@/public/AlanPeek.png'
+import Image from 'next/image'
+import Lightning from '@/public/RedFlash3.png'
+import {motion} from "framer-motion"
+import AnimatedCounter from '@/components/AnimatedCounter'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <>
+      <div className="w-full h-[80vh] bg-heroBG bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src={Lightning}
+          alt="Lightning bolt"
+          className="absolute top-[35%] left-[25%] z-50 animate-lightning"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <motion.h1
+          initial={{ opacity: 0, x: -250 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, type: "spring", stiffness: 150 }}
+          className="text-center text-crrg sm:text-2xl md:text-3xl xl:text-6xl pt-10 font-bold"
+        >
+          Welcome to the Country Roads Riders Guide
+        </motion.h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {/* Top Box */}
+        <div className="w-full h-full flex sm:flex-col lg:flex-row">
+          {/* Left Box */}
+          <div className="sm:w-full lg:w-2/5">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={Alan}
+              alt="Alan Having a Look"
+              className="absolute bottom-[100] hidden sm:block sm:opacity-65 sm:w-[40%] sm:left-[45] lg:opacity-100 lg:left-[20] lg:w-[20%]"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          {/* Right Box */}
+          <div className="sm:w-full sm:mt-6 lg:w-3/5 text-white text-2xl flex flex-col items-center justify-center">
+            <motion.p
+              initial={{ opacity: 0, x: "50vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ type: "spring", delay: 0.25 }}
+              className="w-4/5 mb-10"
+            >
+              The Country Roads Riders Guide is a blog written by a small group
+              of motorcycle touring enthusiasts who regularly tour the beautiful
+              Irish countryside and share the occasional coffee or breakfast.
+              Their motorcycles, like their owners, come in all shapes and sizes
+              and are mostly old and in need of slight repair.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: "50vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ type: "spring", delay: 0.3 }}
+              className="w-4/5 mb-2"
+            >
+              This site is run by enthusiasts who provide material and
+              photographs for trip reports and bike reviews. The guide is
+              intended to give a totally subjective account of Ireland's
+              picturesque locations for bike touring to fellow bikers who like a
+              good motorcycle based read. We strongly urge you to browse our
+              guide, but most of all, visit Ireland and bike safe.
+            </motion.p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="w-full bg-black text-white flex items-center justify-around py-5">
+        <div className="border-crrg border p-5 text-white text-3xl w-32 text-center rounded-xl bg-gradient-to-bl from-green-700 to-black">
+          <AnimatedCounter from={0} to={397} />
+          <h1 className="text-lg">Spins</h1>
+        </div>
+        <div className="border-crrg border p-5 text-white text-3xl w-32 text-center rounded-xl bg-gradient-to-bl from-white to-black">
+          <AnimatedCounter from={0} to={40} />k
+          <h1 className="text-lg">Miles</h1>
+        </div>
+        <div className="border-crrg border p-5 text-white text-3xl w-32 text-center rounded-xl bg-gradient-to-bl from-orange-700 to-black">
+          <AnimatedCounter from={0} to={15} />
+          <h1 className="text-lg">Years</h1>
+        </div>
+      </div>
+      <MidSection />
+    </>
   );
 }

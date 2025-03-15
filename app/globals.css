@@ -2,20 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .underlineAnimation {
+    @apply relative after:absolute after:content-[''] after:w-full after:h-0.5 after:bg-crrg after:left-0 after:bottom-[-5px] after:scale-x-0 after:hover:scale-x-100  hover:text-crrg transition-all duration-300
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* @apply relative hover:text-crrg transition-all duration-1000 after:absolute after:content-[''] after:w-0 after:h-0.5 after:bg-crrg after:left-0 after:bottom-[-5px] after:hover:w-full */
